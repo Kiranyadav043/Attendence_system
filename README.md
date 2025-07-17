@@ -1,37 +1,63 @@
-🚀 Smart Attendance System – Face Recognition Based
-An automated attendance system that leverages computer vision and machine learning to mark attendance using facial recognition. Built with a clean, modular codebase using Object-Oriented Programming (OOP) and a user-friendly interface using Streamlit.
+Smart Attendance System Using Facial Recognition
+This project is a smart attendance tracking system that leverages facial recognition to automate the process of marking attendance. The system allows users to register their face, log in using face authentication, and automatically records login and logout times. It is built using computer vision, machine learning, and is designed with modular and scalable code practices following object-oriented programming principles.
 
-✅ Key Features
-📸 Face Registration
-Users can register their face via webcam to be recognized by the system.
+Features
+Face Registration
+Captures 300 facial samples per user using MediaPipe FaceMesh (468 landmarks).
 
-🔐 Face Authentication
-Users are authenticated in real-time using facial recognition for secure attendance marking.
+Stores landmark data and corresponding labels for training.
 
-🕒 Automatic Attendance Logging
-The system automatically logs login and logout times, calculates working hours, and detects late logins.
+Automatically retrains the recognition model after each registration to include new users.
 
-🔁 Live Model Retraining
-The facial recognition model is automatically retrained after every new user registration, ensuring high accuracy.
+Real-Time Face Recognition
+Uses a trained RandomForestClassifier to recognize users in real-time through webcam.
 
-📊 Attendance Report Generation
-Generates daily attendance reports with:
+Facial features are preprocessed and normalized for accurate classification.
 
-Name
+Employs LabelEncoder to manage user labels efficiently.
+
+Automated Attendance Logging
+Detects and logs:
 
 Login Time
 
 Logout Time
 
-Working Hours
+Total Working Hours
 
-Login Status (e.g., On Time / Late Login)
+Login Status (e.g., On Time or Late based on configurable threshold)
 
-🧠 Machine Learning & Computer Vision
-Uses MediaPipe FaceMesh and RandomForestClassifier with facial landmark encoding.
+Attendance is saved in a structured CSV format.
 
-🌐 Web Interface with Streamlit
-Clean and interactive UI built using Streamlit for ease of use.
+Reporting
+Daily reports are automatically generated and saved in the attendance/ directory.
 
-🧱 OOP-based Modular Design
-Designed with Object-Oriented Programming for scalability, reusability, and maintainability.
+Reports include columns: Name, Login Time, Logout Time, Working Hours, and Login Status.
+
+Menu-Driven Interface
+A terminal-based menu allows users to:
+
+Register new faces
+
+Mark attendance
+
+View attendance reports
+
+Exit the program
+
+Modular and Maintainable Codebase
+Implements object-oriented programming for better structure and reusability.
+
+Clean separation of responsibilities between registration, recognition, and reporting modules.
+
+Technologies Used
+Python
+
+OpenCV
+
+MediaPipe FaceMesh
+
+scikit-learn (Random Forest Classifier)
+
+pandas
+
